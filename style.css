@@ -146,52 +146,6 @@ header {
   transform: rotate(360deg) scale(1.1);
 }
 
-/* ===== عداد الزوار ===== */
-.visitor-counter {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(99, 102, 241, 0.2);
-  padding: 8px 16px;
-  border-radius: 30px;
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  backdrop-filter: blur(5px);
-  margin-left: 20px;
-  transition: all 0.3s ease;
-  animation: counterPulse 2s ease-in-out infinite;
-}
-
-@keyframes counterPulse {
-  0%, 100% { box-shadow: 0 0 10px rgba(99, 102, 241, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.6); }
-}
-
-.visitor-counter:hover {
-  background: rgba(99, 102, 241, 0.3);
-  transform: scale(1.05);
-  border-color: #6366f1;
-}
-
-.visitor-counter i {
-  color: #6366f1;
-  font-size: 18px;
-  animation: blink 2s ease-in-out infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.visitor-counter span {
-  color: white;
-  font-weight: 700;
-  font-size: 18px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 /* ===== Navigation ===== */
 .menu-checkbox {
   display: none;
@@ -320,9 +274,11 @@ nav a.active {
   max-width: 500px;
 }
 
+/* ===== الأزرار الثلاثة ===== */
 .cta-buttons {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .btn {
@@ -332,7 +288,10 @@ nav a.active {
   font-weight: 600;
   font-size: 16px;
   transition: all 0.3s;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn.primary {
@@ -354,6 +313,23 @@ nav a.active {
 .btn.secondary:hover {
   border-color: var(--primary);
   transform: translateY(-3px);
+}
+
+/* زر Discord */
+.discord-btn {
+  background: #5865F2;
+  color: white;
+  border: none;
+}
+
+.discord-btn:hover {
+  background: #4752C4;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(88, 101, 242, 0.4);
+}
+
+.discord-btn i {
+  font-size: 18px;
 }
 
 .image-wrapper {
@@ -749,13 +725,6 @@ footer {
     right: 0;
   }
   
-  .visitor-counter {
-    position: absolute;
-    top: 15px;
-    right: 70px;
-    margin-left: 0;
-  }
-  
   .text-content h1 {
     font-size: 50px;
   }
@@ -788,6 +757,16 @@ footer {
   .coming-soon-icon {
     font-size: 60px;
   }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -797,16 +776,6 @@ footer {
   
   .text-content h2 {
     font-size: 24px;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .btn {
-    width: 100%;
-    text-align: center;
   }
   
   .profile-image {

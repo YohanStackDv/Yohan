@@ -64,12 +64,6 @@
         <a href="#Skills">Skills</a>
         <a href="#Projects">Projects</a>
       </nav>
-      
-      <!-- عداد الزوار -->
-      <div class="visitor-counter">
-        <i class="fa-solid fa-eye"></i>
-        <span id="visitorCount">0</span>
-      </div>
     </header>
 
     <!-- Home Section -->
@@ -80,11 +74,20 @@
           <h1>Yohan</h1>
           <h2>Full Stack Developer</h2>
           <p>Turning complex problems into simple, elegant solutions</p>
+          
+          <!-- الأزرار الثلاثة مع Discord -->
           <div class="cta-buttons">
             <a href="#Projects" class="btn primary">View My Work</a>
             <a href="#About" class="btn secondary">Learn More</a>
+            
+            <!-- زر Discord -->
+            <a href="https://discord.com/users/1357411232188993769" target="_blank" class="btn discord-btn">
+              <i class="fa-brands fa-discord"></i>
+              <span>Discord</span>
+            </a>
           </div>
         </div>
+        
         <div class="image-wrapper">
           <div class="profile-image">
             <img src="profile.png" alt="Yohan">
@@ -344,22 +347,6 @@
         document.querySelector('.preloader').style.display = 'none';
       }, 3000);
     });
-
-    // عداد الزوار
-    function updateVisitorCounter() {
-      let count = localStorage.getItem('visitorCount');
-      
-      if (count === null) {
-        count = 1;
-      } else {
-        count = parseInt(count) + 1;
-      }
-      
-      localStorage.setItem('visitorCount', count);
-      document.getElementById('visitorCount').textContent = count;
-    }
-    
-    setTimeout(updateVisitorCounter, 3000);
   </script>
 </body>
 </html>
